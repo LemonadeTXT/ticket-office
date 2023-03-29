@@ -3,7 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketOffice", "TicketOffice\TicketOffice.csproj", "{CAC2BDDC-CE01-457F-B69C-9BBBE9E4E65A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketOffice", "TicketOffice\TicketOffice.csproj", "{CAC2BDDC-CE01-457F-B69C-9BBBE9E4E65A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{97A43739-CC41-4DA6-845C-8E63D9979222} = {97A43739-CC41-4DA6-845C-8E63D9979222}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketOffice.Common", "TicketOffice.Common\TicketOffice.Common.csproj", "{87AEC58E-F68D-4A2E-BB1C-C49D04B23FE1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketOffice.BusinessLogic", "TicketOffice.BusinessLogic\TicketOffice.BusinessLogic.csproj", "{BA19C726-2F77-47CC-9063-BBF0112F07E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketOffice.DAL", "TicketOffice.DAL\TicketOffice.DAL.csproj", "{97A43739-CC41-4DA6-845C-8E63D9979222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketOffice.Mapper", "TicketOffice.Mapper\TicketOffice.Mapper.csproj", "{73006B81-B35B-4CDB-9892-690AA1037FEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +26,22 @@ Global
 		{CAC2BDDC-CE01-457F-B69C-9BBBE9E4E65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAC2BDDC-CE01-457F-B69C-9BBBE9E4E65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAC2BDDC-CE01-457F-B69C-9BBBE9E4E65A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87AEC58E-F68D-4A2E-BB1C-C49D04B23FE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87AEC58E-F68D-4A2E-BB1C-C49D04B23FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87AEC58E-F68D-4A2E-BB1C-C49D04B23FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87AEC58E-F68D-4A2E-BB1C-C49D04B23FE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA19C726-2F77-47CC-9063-BBF0112F07E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA19C726-2F77-47CC-9063-BBF0112F07E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA19C726-2F77-47CC-9063-BBF0112F07E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA19C726-2F77-47CC-9063-BBF0112F07E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97A43739-CC41-4DA6-845C-8E63D9979222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97A43739-CC41-4DA6-845C-8E63D9979222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97A43739-CC41-4DA6-845C-8E63D9979222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97A43739-CC41-4DA6-845C-8E63D9979222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73006B81-B35B-4CDB-9892-690AA1037FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73006B81-B35B-4CDB-9892-690AA1037FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73006B81-B35B-4CDB-9892-690AA1037FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73006B81-B35B-4CDB-9892-690AA1037FEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
