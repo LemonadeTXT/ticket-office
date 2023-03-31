@@ -1,0 +1,22 @@
+﻿@model TicketOffice.Common.Dtos.UserAuthDto;
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+<br />
+<form method="post" asp-controller="Auth" asp-action="Login">
+    <div>
+        <label>Login</label>
+        <input asp-for="Login" class="form-control" style="width: 25%" />
+        <span asp-validation-for="Login"></span><br />
+    </div>
+    <div>
+        <label>Password</label>
+        <input asp-for="Password" class="form-control" style="width: 25%" />
+        <span asp-validation-for="Password"></span><br />
+    </div>
+    <br />
+    <input type="submit" class="btn btn-primary" style="width:100px; margin-right: 50px" value="Login" />
+</form>
