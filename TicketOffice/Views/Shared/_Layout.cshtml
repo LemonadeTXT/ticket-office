@@ -21,13 +21,13 @@
                     <div style="position: absolute; right: 0; display: flex">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <a class="nav-link text-black" style="margin-right:5px" asp-area="" asp-controller="Profile" asp-action="Profile">Profile</a>
-                            <a class="nav-link text-black" style="margin-left:5px; margin-right:5px" asp-area="" asp-controller="Authentication" asp-action="Logout">Logout</a>
+                            <a class="nav-link text-black" style="margin-right:5px" asp-area="" asp-controller="Profile" asp-action="GetProfile">Profile</a>
+                            <a class="nav-link text-black" style="margin-left:5px; margin-right:5px" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
                         }
                         else
                         {
-                            <a class="nav-link text-black" style="margin-right:5px" asp-area="" asp-controller="Authentication" asp-action="Login">Login</a>
-                            <a class="nav-link text-black" style="margin-left:5px; margin-right:5px" asp-area="" asp-controller="Authentication" asp-action="SignUp">Sign Up</a>
+                            <a class="nav-link text-black" style="margin-right:5px" asp-area="" asp-controller="Auth" asp-action="Login">Login</a>
+                            <a class="nav-link text-black" style="margin-left:5px; margin-right:5px" asp-area="" asp-controller="Auth" asp-action="SignUp">Sign Up</a>
                         }
                     </div>
                 </div>
@@ -42,7 +42,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - TicketOffice - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - TicketOffice
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
