@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TicketOffice.Common\TicketOffice.Common.csproj" />
     <ProjectReference Include="..\TicketOffice.DAL\TicketOffice.DAL.csproj" />
+    <ProjectReference Include="..\TicketOffice.Mapper\TicketOffice.Mapper.csproj" />
   </ItemGroup>
 
 </Project>
