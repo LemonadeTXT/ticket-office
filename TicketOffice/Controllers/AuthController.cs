@@ -6,7 +6,6 @@ using TicketOffice.Common.Dtos;
 using TicketOffice.Common.Models;
 using Microsoft.AspNetCore.Authorization;
 using TicketOffice.BusinessLogic.Interfaces;
-using AutoMapper;
 
 namespace TicketOffice.Controllers
 {
@@ -42,7 +41,7 @@ namespace TicketOffice.Controllers
 
                     await Authenticate(user);
 
-                    return RedirectToAction("GetProfile", "Profile");
+                    return RedirectToAction("EditProfile", "Profile");
                 }
             }
 
