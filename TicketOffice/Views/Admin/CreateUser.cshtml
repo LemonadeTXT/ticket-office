@@ -1,0 +1,39 @@
+﻿@using TicketOffice.Common.Enum;
+@model TicketOffice.Common.Dtos.UserDto;
+
+@{
+    ViewData["Title"] = "Create User";
+}
+
+<h1>
+    Create User
+</h1>
+<br />
+<form method="post" asp-controller="Admin" asp-action="CreateUser">
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" style="width: 25%" />
+        <span asp-validation-for="Email"></span><br />
+    </div>
+    <div>
+        <label>Login</label>
+        <input asp-for="Login" class="form-control" style="width: 25%" />
+        <span asp-validation-for="Login"></span><br />
+    </div>
+    <div>
+        <label>Password</label>
+        <input asp-for="Password" class="form-control" style="width: 25%" />
+        <span asp-validation-for="Password"></span><br />
+    </div>
+    <div>
+        <label>Role</label>
+        @Html.DropDownList("Role",
+            new SelectList(Enum.GetValues(typeof(Role))),
+            new { @style = "width: 25%", @class = "form-control" })
+        <span asp-validation-for="Role"></span><br />
+    </div>
+    <br />
+    <a class="btn btn-primary" style="width: 100px; margin-right: 50px" asp-controller="Admin" asp-action="UsersManagement">Back</a>
+    <input type="submit" class="btn btn-success" margin-right: 50px" value="Create User" />
+</form>
+
