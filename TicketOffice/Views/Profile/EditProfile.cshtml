@@ -1,0 +1,28 @@
+﻿@model TicketOffice.Common.Dtos.UserProfileDto;
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h1>Edit Profile</h1>
+<br />
+<form method="post" asp-controller="Profile" asp-action="EditProfile">
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" style="width: 25%" />
+        <span asp-validation-for="Email"></span><br />
+    </div>
+    <div>
+        <label>Login</label>
+        <input asp-for="Login" class="form-control" style="width: 25%" />
+        <span asp-validation-for="Login"></span><br />
+    </div>
+    <div>
+        <label>Password</label>
+        <input asp-for="Password" class="form-control" style="width: 25%" />
+        <span asp-validation-for="Password"></span><br />
+    </div>
+    <br />
+    <a class="btn btn-primary" style="width: 100px; margin-right: 50px" asp-controller="Home" asp-action="Index">Back</a>
+    <input type="submit" class="btn btn-success" style="width:100px; margin-right:50px" value="Apply" />
+</form>
