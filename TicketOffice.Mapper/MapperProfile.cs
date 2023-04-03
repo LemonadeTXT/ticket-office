@@ -9,6 +9,8 @@ namespace TicketOffice.Mapper
         public MapperProfile()
         {
             CreateMap<UserCreateDto, User>().ReverseMap();
+            CreateMap<UserProfileDto, User>().ReverseMap();
+            CreateMap<UserDto, User>().ReverseMap();
         }
     }
 }

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TicketOffice.Common\TicketOffice.Common.csproj" />
+    <ProjectReference Include="..\TicketOffice.Models\TicketOffice.Models.csproj" />
   </ItemGroup>
 
 </Project>
