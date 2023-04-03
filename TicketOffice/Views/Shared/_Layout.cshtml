@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -21,7 +22,14 @@
                     <div style="position: absolute; right: 0; display: flex">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <a class="nav-link text-black" style="margin-right:5px" asp-area="" asp-controller="Profile" asp-action="GetProfile">Profile</a>
+                            var userRole = User.FindFirst(ClaimTypes.Role).Value;
+
+                            if (userRole == "Admin")
+                            {
+                                <a class="nav-link text-black" style="margin-right:5px" asp-area="" asp-controller="Admin" asp-action="UsersManagement">Admin</a>
+                            }
+
+                            <a class="nav-link text-black" style="margin-right:5px" asp-area="" asp-controller="Profile" asp-action="EditProfile">Profile</a>
                             <a class="nav-link text-black" style="margin-left:5px; margin-right:5px" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
                         }
                         else
