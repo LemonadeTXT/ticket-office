@@ -14,7 +14,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketOffice.BusinessLogic"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketOffice.DAL", "TicketOffice.DAL\TicketOffice.DAL.csproj", "{97A43739-CC41-4DA6-845C-8E63D9979222}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketOffice.Mapper", "TicketOffice.Mapper\TicketOffice.Mapper.csproj", "{73006B81-B35B-4CDB-9892-690AA1037FEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketOffice.Mapper", "TicketOffice.Mapper\TicketOffice.Mapper.csproj", "{73006B81-B35B-4CDB-9892-690AA1037FEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketOffice.Models", "TicketOffice.Models\TicketOffice.Models.csproj", "{5139608A-3837-4BD3-B2B4-5235FF4F54ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +44,10 @@ Global
 		{73006B81-B35B-4CDB-9892-690AA1037FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73006B81-B35B-4CDB-9892-690AA1037FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73006B81-B35B-4CDB-9892-690AA1037FEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5139608A-3837-4BD3-B2B4-5235FF4F54ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5139608A-3837-4BD3-B2B4-5235FF4F54ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5139608A-3837-4BD3-B2B4-5235FF4F54ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5139608A-3837-4BD3-B2B4-5235FF4F54ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
