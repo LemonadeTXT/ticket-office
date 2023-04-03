@@ -11,8 +11,6 @@ namespace TicketOffice.BusinessLogic.Interfaces
 
         void Create(UserCreateDto userCreateDto);
 
-        void Edit(UserDto userDto);
-
-        void Delete(UserDto userDto);
+        void Edit(UserProfileDto userDto, User user);
     }
 }
