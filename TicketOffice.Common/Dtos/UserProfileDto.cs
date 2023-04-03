@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using TicketOffice.Common.Enum;
 
 namespace TicketOffice.Common.Dtos
 {
-    public class UserDto
+    public class UserProfileDto
     {
-        public int Id { get; set; }
-
         [Required(ErrorMessage = "Please, enter login!")]
         [StringLength(15, MinimumLength = 3,
             ErrorMessage = "The LOGIN length must be between 3 and 15 characters!")]
@@ -22,8 +19,5 @@ namespace TicketOffice.Common.Dtos
             ErrorMessage = "The EMAIL is to big, please choice another!")]
         [DataType(DataType.EmailAddress)]
         public string? Email { get; set; }
-
-        [Required(ErrorMessage = "Please, select the ROLE!")]
-        public Role Role { get; set; }
     }
 }
