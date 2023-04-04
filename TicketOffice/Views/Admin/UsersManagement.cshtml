@@ -7,11 +7,13 @@
 }
 
 <h1>
-    Users Management
+    @ViewData["Title"]
 </h1>
-
 <br />
-<a class="btn btn-primary" asp-controller="Admin" asp-action="CreateUser">Create User</a>
+<div class="row">
+    <a class="btn btn-primary col-2" style="margin-right: 30px" asp-controller="Admin" asp-action="CreateUser">Create User</a>
+    <a class="btn btn-primary col-2" asp-controller="Admin" asp-action="TicketsManagement">Tickets Management</a>
+</div>
 <p />
 
 <table class="table table-striped table-bordered" style="width: 70%">
@@ -45,10 +47,13 @@
                 <td>@userDto.Login</td>
                 <td>@userDto.Password</td>
                 <td>@userDto.Role</td>
-                <td>
-                    @Html.ActionLink("Edit", "EditUser", new { id = userDto.Id }) |
-                    @Html.ActionLink("Delete", "DeleteUser", userDto)
-                </td>
+                @if (userDto.Role != TicketOffice.Common.Enum.Role.Admin)
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "EditUser", new { id = userDto.Id }) |
+                        @Html.ActionLink("Delete", "DeleteUser", userDto)
+                    </td>
+                }
             </tr>
 
             number++;
