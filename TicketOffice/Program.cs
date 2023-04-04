@@ -21,7 +21,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 var mappingConfig = new MapperConfiguration(mc =>
 {
-mc.AddProfile(new MapperProfile());
+    mc.AddProfile(new UserMapperProfile());
+    mc.AddProfile(new TicketMapperProfile());
 });
 
 var mapper = mappingConfig.CreateMapper();
