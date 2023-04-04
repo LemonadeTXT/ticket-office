@@ -6,7 +6,7 @@
         public DateTime EventDate { get; set; }
         public string? EventName { get; set; }
         public string? EventType { get; set; }
-        public string? PlaceNumber { get; set; }
+        public int? NumberOfSeats { get; set; }
         public byte[]? QR { get; set;}
     }
 }
