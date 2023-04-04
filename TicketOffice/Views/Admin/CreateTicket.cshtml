@@ -1,0 +1,40 @@
+﻿@model TicketOffice.Common.Dtos.TicketDto;
+
+@{
+    ViewData["Title"] = "Create Ticket";
+}
+
+<h1>
+    @ViewData["Title"]
+</h1>
+<br />
+<form method="post" asp-controller="Admin" asp-action="CreateTicket" enctype="multipart/form-data">
+    <div>
+        <label>Event Date</label>
+        <input asp-for="EventDate" class="form-control" style="width: 25%" />
+        <span asp-validation-for="EventDate"></span><br />
+    </div>
+    <div>
+        <label>Event Name</label>
+        <input asp-for="EventName" class="form-control" style="width: 25%" />
+        <span asp-validation-for="EventName"></span><br />
+    </div>
+    <div>
+        <label>Event Type</label>
+        <input asp-for="EventType" class="form-control" style="width: 25%" />
+        <span asp-validation-for="EventType"></span><br />
+    </div>
+    <div>
+        <label>Number of Seats</label>
+        <input asp-for="NumberOfSeats" class="form-control" style="width: 25%" />
+        <span asp-validation-for="NumberOfSeats"></span><br />
+    </div>
+    <div>
+        <label>Select QR Image</label>
+        <input type="file" name="image" class="form-control" style="width: 40%" accept=".jpg, .png" />
+        <span asp-validation-for="QR"></span><br />
+    </div>
+    <br />
+    <a class="btn btn-primary" style="width: 100px; margin-right: 50px" asp-controller="Admin" asp-action="TicketsManagement">Back</a>
+    <input type="submit" class="btn btn-success" margin-right: 50px" value="Create Ticket" />
+</form>
