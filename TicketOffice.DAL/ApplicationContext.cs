@@ -1,5 +1,6 @@
 ﻿using TicketOffice.Common.Models;
 using Microsoft.EntityFrameworkCore;
+using TicketOffice.Models;
 
 namespace TicketOffice.DAL
 {
@@ -12,5 +13,6 @@ namespace TicketOffice.DAL
 
         public DbSet<User> Users { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<PurchasedTicket> PurchasedTickets { get; set; }
     }
 }
