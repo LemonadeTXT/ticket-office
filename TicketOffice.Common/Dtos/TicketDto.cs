@@ -20,7 +20,7 @@ namespace TicketOffice.Common.Dtos
             ErrorMessage = "The EVENT TYPE is to big, please change it!")]
         public string? EventType { get; set; }
 
-        [Required(ErrorMessage = "Please, enter EVENT TYPE!")]
+        [Required(ErrorMessage = "Please, enter NUMBER OF FREE SEATS!")]
         [Range(1, 100, ErrorMessage = "The value must be beetwen 1 and 100!")]
         public int? NumberOfSeats { get; set; }
 
