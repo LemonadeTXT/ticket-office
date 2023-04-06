@@ -1,0 +1,77 @@
+﻿@model List<TicketOffice.Common.Dtos.TicketDto>;
+
+@{
+    ViewData["Title"] = "Tickets";
+}
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <div class="text-center">
+        <h1 class="display-4">Sorry but...</h1>
+        <p>
+            You have to <a asp-controller="Auth" asp-action="SignUp">Register</a> or
+            <a asp-controller="Auth" asp-action="Login">Login</a> to see available tickets.
+        </p>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">Available Tickets</h1>
+        @if (Model is null || Model.Count == 0)
+        {
+            <p>Sorry but there are no such events planned in the near future :(</p>
+        }
+        else
+        {
+            <a class="btn btn-primary" asp-controller="Home" asp-action="FindTickets">Find Tickets</a>
+            <div class="row">
+                @foreach (var ticketDto in Model)
+                {
+                    var imgsrc = string.Format("data:image/png;base64," + Convert.ToBase64String(ticketDto.QR));
+
+                    <div class="col-4">
+                        <div class="cards-container">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>
+                                        @ticketDto.EventName
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <p>
+                                        <b>Event Date:</b> @ticketDto.EventDate
+                                    </p>
+                                    <p>
+                                        <b>Event Type:</b> @ticketDto.EventType
+                                    </p>
+                                    <p>
+                                        <b>Number of Free Seats:</b> @ticketDto.NumberOfSeats
+                                    </p>
+
+                                    <img alt="Ticket" style="height: 100px; width: 100px" class="avatar-view" src="@imgsrc">
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn btn-primary" asp-controller="Home" asp-action="GetTicket" asp-route-ticketId="@ticketDto.Id">Get it!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}
+
+<style>
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card {
+        width: 285px;
+        margin: 5%;
+    }
+</style>

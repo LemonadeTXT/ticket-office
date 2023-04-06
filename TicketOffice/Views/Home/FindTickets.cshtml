@@ -1,0 +1,30 @@
+﻿@model TicketOffice.Common.Dtos.TicketsFindDto;
+
+@{
+    ViewData["Title"] = "Find Tickets";
+}
+
+<h1>
+    @ViewData["Title"]
+</h1>
+
+<form method="post" asp-controller="Home" asp-action="Tickets">
+    <div>
+        <label>Event Date</label>
+        <input asp-for="EventDate" class="form-control" style="width: 30%" />
+        <span asp-validation-for="EventDate"></span><br />
+    </div>
+    <div>
+        <label>Event Name</label>
+        <input asp-for="EventName" class="form-control" style="width: 30%" />
+        <span asp-validation-for="EventName"></span><br />
+    </div>
+    <div>
+        <label>Number of free Seats</label>
+        <input asp-for="NumberOfSeats" class="form-control" style="width: 30%" />
+        <span asp-validation-for="NumberOfSeats"></span><br />
+    </div>
+    <br />
+    <a class="btn btn-primary" style="margin-right: 50px" asp-controller="Home" asp-action="Index">Back</a>
+    <input type="submit" class="btn btn-success" margin-right: 50px" value="Find Tickets" />
+</form>
