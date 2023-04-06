@@ -12,16 +12,16 @@ namespace TicketOffice.BusinessLogic.Services
             _userService = userService;
         }
 
-        public bool IsLogin(string login, string password, out int id)
+        public bool IsLogin(string login, string password, out int userId)
         {
-            id = -1;
+            userId = -1;
 
             foreach (User user in _userService.GetAll())
             {
                 if (user.Login == login &&
                     user.Password == password)
                 {
-                    id = user.Id;
+                    userId = user.Id;
 
                     return true;
                 }

@@ -18,9 +18,9 @@ namespace TicketOffice.BusinessLogic.Services
             _mapper = mapper;
         }
 
-        public User GetUser(int id)
+        public User GetUser(int userId)
         {
-            var user = _applicationContext.Users.FirstOrDefault(u => u.Id == id);
+            var user = _applicationContext.Users.FirstOrDefault(u => u.Id == userId);
 
             return user;
         }
@@ -62,9 +62,9 @@ namespace TicketOffice.BusinessLogic.Services
             _applicationContext.SaveChanges();
         }
 
-        public Ticket GetTicket(int id)
+        public Ticket GetTicket(int ticketId)
         {
-            var ticket = _applicationContext.Tickets.FirstOrDefault(u => u.Id == id);
+            var ticket = _applicationContext.Tickets.FirstOrDefault(u => u.Id == ticketId);
 
             return ticket;
         }
@@ -97,9 +97,9 @@ namespace TicketOffice.BusinessLogic.Services
             _applicationContext.SaveChanges(true);
         }
 
-        public void DeleteTicket(int id)
+        public void DeleteTicket(int ticketId)
         {
-            var ticket = GetTicket(id);
+            var ticket = GetTicket(ticketId);
 
             _applicationContext.Tickets.Attach(ticket);
             _applicationContext.Tickets.Remove(ticket);

@@ -17,9 +17,9 @@ namespace TicketOffice.BusinessLogic.Services
             _mapper = mapper;
         }
 
-        public User Get(int id)
+        public User Get(int userId)
         {
-            var user = _applicationContext.Users.FirstOrDefault(u => u.Id == id);
+            var user = _applicationContext.Users.FirstOrDefault(u => u.Id == userId);
 
             return user;
         }
@@ -43,6 +43,18 @@ namespace TicketOffice.BusinessLogic.Services
         {
             _applicationContext.Entry(user).CurrentValues.SetValues(userDto);
             _applicationContext.SaveChanges(true);
+        }
+
+        public bool IsUsersEqual(UserProfileDto userDto, User user)
+        {
+            if (userDto.Email != user.Email ||
+                userDto.Login != user.Login ||
+                userDto.Password != user.Password)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
