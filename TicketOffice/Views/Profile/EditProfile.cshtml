@@ -4,10 +4,14 @@
     ViewData["Title"] = "Profile";
 }
 
-<h1>Edit Profile</h1>
+<h1>
+    @ViewData["Title"]
+</h1>
 <br />
+<a class="btn btn-primary" asp-controller="Profile" asp-action="YourTickets">Your Tickets</a>
 <form method="post" asp-controller="Profile" asp-action="EditProfile">
     <div>
+        <br />
         <label>Email</label>
         <input asp-for="Email" class="form-control" style="width: 25%" />
         <span asp-validation-for="Email"></span><br />
