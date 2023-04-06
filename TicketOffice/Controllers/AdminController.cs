@@ -21,7 +21,9 @@ namespace TicketOffice.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult UsersManagement()
         {
-            return View(_adminService.GetAllUsersDto());
+            var usersDto = _adminService.GetAllUsersDto();
+
+            return View(usersDto);
         }
 
         [Authorize(Roles = "Admin")]
@@ -87,7 +89,9 @@ namespace TicketOffice.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult TicketsManagement()
         {
-            return View(_adminService.GetAllTicketsDto());
+            var ticketsDto = _adminService.GetAllTicketsDto();
+
+            return View(ticketsDto);
         }
 
         [Authorize(Roles = "Admin")]

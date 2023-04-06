@@ -41,7 +41,7 @@ namespace TicketOffice.Controllers
 
                     await Authenticate(user);
 
-                    return RedirectToAction("EditProfile", "Profile");
+                    return RedirectToAction("Index", "Home");
                 }
             }
 

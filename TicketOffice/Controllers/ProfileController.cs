@@ -10,11 +10,13 @@ namespace TicketOffice.Controllers
     public class ProfileController : Controller
     {
         private readonly IUserService _userService;
+        private readonly ITicketService _ticketService;
         private readonly IMapper _mapper;
 
-        public ProfileController(IUserService userService, IMapper mapper)
+        public ProfileController(IUserService userService, ITicketService ticketService, IMapper mapper)
         {
             _userService = userService;
+            _ticketService = ticketService;
             _mapper = mapper;
         }
 
@@ -36,7 +38,7 @@ namespace TicketOffice.Controllers
             {
                 var user = _userService.Get(int.Parse(User.Identity.Name));
 
-                if (!IsUsersEqual(userDto, user))
+                if (!_userService.IsUsersEqual(userDto, user))
                 {
                     _userService.Edit(userDto, user);
 
@@ -47,16 +49,12 @@ namespace TicketOffice.Controllers
             return View(userDto);
         }
 
-        private bool IsUsersEqual(UserProfileDto userDto, User user)
+        [Authorize]
+        public IActionResult YourTickets()
         {
-            if (userDto.Email != user.Email ||
-                userDto.Login != user.Login ||
-                userDto.Password != user.Password)
-            {
-                return false;
-            }
+            var ticketsDto = _ticketService.GetAllPurchasedTickets(int.Parse(User.Identity.Name));
 
-            return true;
+            return View(ticketsDto);
         }
     }
 }
