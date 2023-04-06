@@ -15,9 +15,14 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IAdminService, AdminService>();
 builder.Services.AddTransient<IAuthService, AuthService>();
+builder.Services.AddTransient<ITicketService, TicketService>();
 builder.Services.AddTransient<IUserService, UserService>();
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new PathString("/Auth/Login");
+                });
 
 var mappingConfig = new MapperConfiguration(mc =>
 {
