@@ -1,8 +1,13 @@
-﻿@{
+﻿@model List<TicketOffice.Common.Dtos.TicketDto>;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome!</h1>
+    <p>
+        You have to <a asp-controller="Auth" asp-action="SignUp">Register</a> or
+        <a asp-controller="Auth" asp-action="Login">Login</a> to see available tickets.
+    </p>
 </div>
