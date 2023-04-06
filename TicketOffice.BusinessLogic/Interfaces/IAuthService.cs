@@ -2,7 +2,7 @@
 {
     public interface IAuthService
     {
-        bool IsLogin(string login, string password, out int id);
+        bool IsLogin(string login, string password, out int userId);
 
         bool IsRegistration(string login, string email);
     }

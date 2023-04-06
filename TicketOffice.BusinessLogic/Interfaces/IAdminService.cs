@@ -6,7 +6,7 @@ namespace TicketOffice.BusinessLogic.Interfaces
 {
     public interface IAdminService
     {
-        User GetUser(int id);
+        User GetUser(int userId);
 
         List<UserDto> GetAllUsersDto();
 
@@ -16,7 +16,7 @@ namespace TicketOffice.BusinessLogic.Interfaces
 
         void DeleteUser(UserDto userDto);
 
-        Ticket GetTicket(int id);
+        Ticket GetTicket(int ticketId);
 
         List<TicketDto> GetAllTicketsDto();
 
@@ -24,7 +24,7 @@ namespace TicketOffice.BusinessLogic.Interfaces
 
         void EditTicket(TicketDto ticketDto, Ticket ticket);
 
-        void DeleteTicket(int id);
+        void DeleteTicket(int ticketId);
 
         bool EqualTickets(TicketDto ticketDto, Ticket ticket);
 

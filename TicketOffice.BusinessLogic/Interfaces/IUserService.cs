@@ -5,12 +5,14 @@ namespace TicketOffice.BusinessLogic.Interfaces
 {
     public interface IUserService
     {
-        User Get(int id);
+        User Get(int userId);
 
         List<User> GetAll();
 
         void Create(UserCreateDto userCreateDto);
 
         void Edit(UserProfileDto userDto, User user);
+
+        bool IsUsersEqual(UserProfileDto userDto, User user);
     }
 }
