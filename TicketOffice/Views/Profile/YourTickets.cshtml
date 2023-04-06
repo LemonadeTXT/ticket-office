@@ -1,0 +1,52 @@
+﻿@model List<TicketOffice.Common.Dtos.TicketDto>;
+
+@{
+    ViewData["Title"] = "Your Tickets";
+
+    var number = 1;
+}
+
+<h1>
+    @ViewData["Title"]
+</h1>
+<br />
+<table class="table table-striped table-bordered" style="width: 70%">
+    <tbody>
+        <tr>
+            <th>
+                №
+            </th>
+            <th>
+                Event Date
+            </th>
+            <th>
+                Event Name
+            </th>
+            <th>
+                Event Type
+            </th>
+            <th>
+                Number of Free Seats
+            </th>
+            <th>
+                QR
+            </th>
+        </tr>
+
+        @foreach (var ticketDto in Model)
+        {
+            var imgsrc = string.Format("data:image/png;base64," + Convert.ToBase64String(ticketDto.QR));
+
+            <tr>
+                <td>@number</td>
+                <td>@ticketDto.EventDate</td>
+                <td>@ticketDto.EventName</td>
+                <td>@ticketDto.EventType</td>
+                <td>@ticketDto.NumberOfSeats</td>
+                <td><img alt="Ticket" style="height: 100px; width: 100px" class="avatar-view" src="@imgsrc"></td>
+            </tr>
+
+            number++;
+        }
+    </tbody>
+</table>
