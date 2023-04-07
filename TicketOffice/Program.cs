@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using TicketOffice.BusinessLogic.Interfaces;
 using TicketOffice.BusinessLogic.Services;
 using TicketOffice.DAL;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,12 @@ var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
 
 builder.Services.AddControllersWithViews();
+
+var logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.File(builder.Configuration["Logging:File:Path"].ToString(), rollingInterval:RollingInterval.Day).
+    CreateLogger();
+builder.Logging.AddSerilog(logger);
 
 builder.Services.AddTransient<IAdminService, AdminService>();
 builder.Services.AddTransient<IAuthService, AuthService>();
