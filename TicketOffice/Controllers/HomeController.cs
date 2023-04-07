@@ -7,11 +7,13 @@ namespace TicketOffice.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ILogger<HomeController> _logger;
         private readonly ITicketService _ticketService;
 
-        public HomeController(ITicketService ticketService)
+        public HomeController(ITicketService ticketService, ILogger<HomeController> logger)
         {
             _ticketService = ticketService;
+            _logger = logger;
         }
 
         public IActionResult Index()
@@ -58,7 +60,13 @@ namespace TicketOffice.Controllers
             {
                 _ticketService.PurchaseTicket(userId, ticketId);
 
+                _logger.LogInformation($"User with Id = {userId} purchase Ticket with Id = {ticketId}.");
+
                 return RedirectToAction("YourTickets", "Profile");
+            }
+            else
+            {
+                _logger.LogInformation($"User with Id = {userId} already purchase this Ticket with Id = {ticketId}, and cannot do it again!");
             }
 
             return RedirectToAction("Tickets");
