@@ -41,18 +41,21 @@ else
 
             @foreach (var ticketDto in Model)
             {
-                var imgsrc = string.Format("data:image/png;base64," + Convert.ToBase64String(ticketDto.QR));
+                if (ticketDto != null)
+                {
+                    var imgsrc = string.Format("data:image/png;base64," + Convert.ToBase64String(ticketDto.QR));
 
-                <tr>
-                    <td>@number</td>
-                    <td>@ticketDto.EventDate</td>
-                    <td>@ticketDto.EventName</td>
-                    <td>@ticketDto.EventType</td>
-                    <td>@ticketDto.NumberOfSeats</td>
-                    <td><img alt="Ticket" style="height: 100px; width: 100px" class="avatar-view" src="@imgsrc"></td>
-                </tr>
+                    <tr>
+                        <td>@number</td>
+                        <td>@ticketDto.EventDate</td>
+                        <td>@ticketDto.EventName</td>
+                        <td>@ticketDto.EventType</td>
+                        <td>@ticketDto.NumberOfSeats</td>
+                        <td><img alt="Ticket" style="height: 100px; width: 100px" class="avatar-view" src="@imgsrc"></td>
+                    </tr>
 
-                number++;
+                    number++;
+                }
             }
         </tbody>
     </table>
