@@ -5,9 +5,17 @@ namespace TicketOffice.BusinessLogic.Interfaces
 {
     public interface ITicketService
     {
-        Ticket Get(int ticketId);
+        Ticket GetTicket(int ticketId);
 
         List<TicketDto> GetAllTicketsDto();
+
+        void CreateTicket(TicketDto ticketDto);
+
+        void EditTicket(TicketDto ticketDto, Ticket ticket);
+
+        void DeleteTicket(int ticketId);
+
+        bool EqualTickets(TicketDto ticketDto, Ticket ticket);
 
         List<TicketDto> FindTickets(TicketsFindDto ticketsFindDto);
 

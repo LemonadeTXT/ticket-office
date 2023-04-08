@@ -16,7 +16,7 @@ namespace TicketOffice.BusinessLogic.Services
         {
             userId = -1;
 
-            foreach (User user in _userService.GetAll())
+            foreach (var user in _userService.GetAllUsers())
             {
                 if (user.Login == login &&
                     user.Password == password)
@@ -32,7 +32,7 @@ namespace TicketOffice.BusinessLogic.Services
 
         public bool IsRegistration(string login, string email)
         {
-            foreach (User user in _userService.GetAll())
+            foreach (var user in _userService.GetAllUsers())
             {
                 if (user.Login == login || user.Email == email)
                 {
