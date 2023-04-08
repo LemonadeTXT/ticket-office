@@ -52,7 +52,7 @@ namespace TicketOffice.Controllers
         [Authorize]
         public IActionResult GetTicket(int ticketId)
         {
-            var ticket = _ticketService.Get(ticketId);
+            var ticket = _ticketService.GetTicket(ticketId);
 
             var userId = int.Parse(User.Identity.Name);
 

@@ -23,7 +23,7 @@ namespace TicketOffice.Controllers
         [Authorize]
         public IActionResult EditProfile()
         {
-            var user = _userService.Get(int.Parse(User.Identity.Name));
+            var user = _userService.GetUser(int.Parse(User.Identity.Name));
 
             var userDto = _mapper.Map<User, UserProfileDto>(user);
 
@@ -32,21 +32,18 @@ namespace TicketOffice.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult EditProfile(UserProfileDto userDto)
+        public IActionResult EditProfile(UserProfileDto userProfileDto)
         {
             if (ModelState.IsValid)
             {
-                var user = _userService.Get(int.Parse(User.Identity.Name));
+                var user = _userService.GetUser(int.Parse(User.Identity.Name));
 
-                if (!_userService.IsUsersEqual(userDto, user))
-                {
-                    _userService.Edit(userDto, user);
+                _userService.EditUserByUserProfileDto(userProfileDto, user);
 
-                    return RedirectToAction("Index", "Home");
-                }
+                return RedirectToAction("Index", "Home");
             }
 
-            return View(userDto);
+            return View(userProfileDto);
         }
 
         [Authorize]

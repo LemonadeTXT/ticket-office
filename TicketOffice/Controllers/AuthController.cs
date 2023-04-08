@@ -37,7 +37,7 @@ namespace TicketOffice.Controllers
             {
                 if (_authService.IsLogin(userAuthDto.Login, userAuthDto.Password, out int id))
                 {
-                    var user = _userService.Get(id);
+                    var user = _userService.GetUser(id);
 
                     await Authenticate(user);
 
@@ -65,7 +65,7 @@ namespace TicketOffice.Controllers
             {
                 if (!_authService.IsRegistration(userCreateDto.Login, userCreateDto.Email))
                 {
-                    _userService.Create(userCreateDto);
+                    _userService.CreateUserByUserCreateDto(userCreateDto);
 
                     return RedirectToAction(nameof(Login));
                 }
