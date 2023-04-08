@@ -107,14 +107,16 @@ namespace TicketOffice.BusinessLogic.Services
 
         public List<TicketDto> GetAllPurchasedTickets(int userId)
         {
-            var purchasedTickets = _applicationContext.PurchasedTickets.Where(p => p.UserId == userId).ToList();
+            var purchasedTicketsId = _applicationContext.PurchasedTickets
+                .Where(p => p.UserId == userId)
+                .Select(p => p.TicketId)
+                .AsQueryable();
+
+            var ticketsId = new List<int>();
+            ticketsId.AddRange(purchasedTicketsId);
 
             var tickets = new List<Ticket>();
-
-            foreach (var purchasedTicket in purchasedTickets)
-            {
-                tickets.Add(_applicationContext.Tickets.FirstOrDefault(t => t.Id == purchasedTicket.TicketId));
-            }
+            tickets.AddRange(_applicationContext.Tickets.Where(t => ticketsId.Contains(t.Id)));
 
             var ticketsDto = new List<TicketDto>();
 
