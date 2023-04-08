@@ -20,8 +20,8 @@ var logger = new LoggerConfiguration()
     CreateLogger();
 builder.Logging.AddSerilog(logger);
 
-builder.Services.AddTransient<IAdminService, AdminService>();
 builder.Services.AddTransient<IAuthService, AuthService>();
+builder.Services.AddTransient<IImageService, ImageService>();
 builder.Services.AddTransient<ITicketService, TicketService>();
 builder.Services.AddTransient<IUserService, UserService>();
 
@@ -33,8 +33,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 var mappingConfig = new MapperConfiguration(mc =>
 {
-    mc.AddProfile(new UserMapperProfile());
-    mc.AddProfile(new TicketMapperProfile());
+    mc.AddProfile(new MapperProfile());
 });
 
 var mapper = mappingConfig.CreateMapper();
