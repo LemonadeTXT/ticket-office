@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using TicketOffice.BusinessLogic.Interfaces;
 using TicketOffice.Common.Dtos;
 using TicketOffice.Common.Models;
@@ -110,13 +111,10 @@ namespace TicketOffice.BusinessLogic.Services
             var purchasedTicketsId = _applicationContext.PurchasedTickets
                 .Where(p => p.UserId == userId)
                 .Select(p => p.TicketId)
-                .AsQueryable();
-
-            var ticketsId = new List<int>();
-            ticketsId.AddRange(purchasedTicketsId);
+                .ToList();
 
             var tickets = new List<Ticket>();
-            tickets.AddRange(_applicationContext.Tickets.Where(t => ticketsId.Contains(t.Id)));
+            tickets.AddRange(_applicationContext.Tickets.Where(t => purchasedTicketsId.Contains(t.Id)));
 
             var ticketsDto = new List<TicketDto>();
 
