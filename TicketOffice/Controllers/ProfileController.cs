@@ -38,7 +38,7 @@ namespace TicketOffice.Controllers
             {
                 var user = _userService.GetUser(int.Parse(User.Identity.Name));
 
-                _userService.EditUserByUserProfileDto(userProfileDto, user);
+                _userService.EditUser(userProfileDto, user);
 
                 return RedirectToAction("Index", "Home");
             }

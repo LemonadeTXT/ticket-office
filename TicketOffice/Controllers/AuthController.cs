@@ -65,7 +65,7 @@ namespace TicketOffice.Controllers
             {
                 if (!_authService.IsRegistration(userCreateDto.Login, userCreateDto.Email))
                 {
-                    _userService.CreateUserByUserCreateDto(userCreateDto);
+                    _userService.CreateUser(userCreateDto);
 
                     return RedirectToAction(nameof(Login));
                 }

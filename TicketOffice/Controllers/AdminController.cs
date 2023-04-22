@@ -42,7 +42,7 @@ namespace TicketOffice.Controllers
         {
             if (ModelState.IsValid)
             {
-                _userService.CreateUserByUserDto(userDto);
+                _userService.CreateUser(userDto);
 
                 return RedirectToAction("UsersManagement");
             }
@@ -70,7 +70,7 @@ namespace TicketOffice.Controllers
 
                 if (user.Role != Common.Enum.Role.Admin)
                 {
-                    _userService.EditUserByUserDto(userDto, user);
+                    _userService.EditUser(userDto, user);
 
                     return RedirectToAction("UsersManagement");
                 }

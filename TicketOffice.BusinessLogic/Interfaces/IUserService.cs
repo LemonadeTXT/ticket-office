@@ -11,13 +11,13 @@ namespace TicketOffice.BusinessLogic.Interfaces
 
         List<UserDto> GetAllUsersDto();
 
-        void CreateUserByUserCreateDto(UserCreateDto userCreateDto);
+        void CreateUser(UserCreateDto userCreateDto);
 
-        void CreateUserByUserDto(UserDto userDto);
+        void CreateUser(UserDto userDto);
 
-        void EditUserByUserProfileDto(UserProfileDto userProfileDto, User user);
+        void EditUser(UserProfileDto userProfileDto, User user);
 
-        void EditUserByUserDto(UserDto userDto, User user);
+        void EditUser(UserDto userDto, User user);
 
         void DeleteUser(UserDto userDto);
     }

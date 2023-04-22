@@ -45,7 +45,7 @@ namespace TicketOffice.BusinessLogic.Services
             return usersDto;
         }
 
-        public void CreateUserByUserCreateDto(UserCreateDto userCreateDto)
+        public void CreateUser(UserCreateDto userCreateDto)
         {
             var user = _mapper.Map<UserCreateDto, User>(userCreateDto);
 
@@ -53,7 +53,7 @@ namespace TicketOffice.BusinessLogic.Services
             _applicationContext.SaveChanges();
         }
 
-        public void CreateUserByUserDto(UserDto userDto)
+        public void CreateUser(UserDto userDto)
         {
             var user = _mapper.Map<UserDto, User>(userDto);
 
@@ -61,13 +61,13 @@ namespace TicketOffice.BusinessLogic.Services
             _applicationContext.SaveChanges();
         }
 
-        public void EditUserByUserProfileDto(UserProfileDto userProfileDto, User user)
+        public void EditUser(UserProfileDto userProfileDto, User user)
         {
             _applicationContext.Entry(user).CurrentValues.SetValues(userProfileDto);
             _applicationContext.SaveChanges();
         }
 
-        public void EditUserByUserDto(UserDto userDto, User user)
+        public void EditUser(UserDto userDto, User user)
         {
             _applicationContext.Entry(user).CurrentValues.SetValues(userDto);
             _applicationContext.SaveChanges();
